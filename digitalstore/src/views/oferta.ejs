@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("partials/head") %>
+
+</head>
+
+<body>
+    <%- include("partials/header")%>
+    
+    <main class="section-card p-1 mx-auto flex flex-wrap gap justify-center center bg-grey">
+        <% productsOfert.forEach(product => { %>
+            <%- include("products/productCard",{product})  %> 
+        <% }) %>
+    </main>
+
+    <%- include("partials/footer") %>
+</body>
+
+
+</html>

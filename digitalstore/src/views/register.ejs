@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+   
+
+<head>
+
+    <%- include("partials/head") %>
+
+</head>
+
+<body class="body-login">
+    <!-- LAUTARO Y PABLO -->
+    <%- include("partials/header") %>
+        <!-- LAUTARO Y PABLO -->
+        <main class="main-login">
+            <div class="contenedor">
+<!-- 1°PREGUNTO SI EN LAS VARIABLES QUE SE ENVIARON A LA VISTA (LOCALS), si EXISTE LA VARIABLE ERRORES -->
+
+                        
+            <form action="/users/add" class="form-login" method= "post" enctype="multipart/form-data" >
+
+                <label for="" class="w-60">Nombre</label>
+                <input class="nombreInput" type="text" class="w-60" name="firstName" placeholder="Ingrese su nombre. Ej: Juan" value="<%= locals.old && old.firstName ? old.firstName : '' %>" >
+                
+
+                <% if (locals.errores && errores.firstName ) { %>
+                    <div class ='feedback is-danger'>
+                        <%= errores.firstName.msg %>
+                    </div>
+                <% } %>
+
+                <label for="" class="w-60">Apellido</label>
+                <input class="apellidoInput" type="text" class="w-60" name="lastName" placeholder="Ingrese su apellido. Ej: Lopez" value="<%= locals.old && old.lastName ? old.lastName : '' %>">
+
+                <% if (locals.errores && errores.lastName ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.lastName.msg %>
+                    </div>
+                    <% } %>
+
+
+                <label for="" class="w-60">Usuario</label>
+                <input class="usuarioInput" type="text" class="w-60" name="userName" placeholder="Ingrese un nombre de usuario" value ="<%= locals.old && old.userName ? old.userName : '' %>">
+
+                <% if (locals.errores && errores.userName ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.userName.msg %>
+                    </div>
+                    <% } %>
+
+
+                <label for="" class="w-60">Contraseña</label>
+                <input class="contraseñaInput1" type="password" class="w-60" name="password" placeholder="Ingrese una contraseña">
+
+                <% if (locals.errores && errores.password ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.password.msg %>
+                    </div>
+                    <% } %>
+
+                <label for="" class="w-60">Repetir contraseña</label>
+                <input class="contraseñaInput2" type="password" class="w-60" name="passwordConfirm" placeholder="Confirme contraseña">
+                <% if (locals.errores && errores.passwordConfirm ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.passwordConfirm.msg %>
+                    </div>
+                    <% } %>
+
+
+                <label for="" class="w-60">Email</label>
+                <input class="emailInput" type="email" class="w-60" name="email" placeholder="Ingrese su e-mail. Ej: usuario@usuario.com" value="<%= locals.old && old.email ? old.email : '' %>">
+
+                <% if (locals.errores && errores.email ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.email.msg %>
+                    </div>
+                    <% } %>
+
+
+                <label for="image" class="label-form">Imagen del perfil</label>
+                <input type="file" class="input-file" name="img" id="imageuser" accept="image/png, image/jpeg, image/jpg">
+                  
+
+
+                <% if (locals.errores && errores.img) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.img.msg %>
+                    </div>
+                    <% } %>
+               
+                <a href="" class="w-100"><input type="submit" class="boton-enviar"></a>
+                
+                <a href="" class="w-100"><input type="reset" value="Limpiar datos" class="boton-enviar"></a>
+
+
+            </form>
+    </main>
+
+    <!-- AXEL -->
+   <%- include("partials/footer")%>
+   
+
+</body>
+<script src="/script/register.js"></script>
+
+</html>

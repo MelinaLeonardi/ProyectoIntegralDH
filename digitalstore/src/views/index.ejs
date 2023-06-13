@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("partials/head") %>
+</head>
+
+<body>
+    <!-- LAUTARO Y PABLO -->
+    <%- include("partials/header") %>
+
+      
+        <!-- MELINA Y RUBEN -->
+        <main class="mx-auto bg-grey " style="padding-bottom: 3rem;">
+            
+            <section class="main-publicidad">
+                <!-- <%- include("partials/carruselUno")%> -->
+                <img src="/img/anuncios/hyperx-brand-banner.jpg" alt="">
+            </section>   
+
+            <section class="main-categories">
+                <!--Carrusel con imagenes en circulo-->
+             
+
+
+                <article >
+                    <a class="categoria-main" href="/products?category=Auriculares">
+                        <img src="img/productos/auriculares-redragon.jpg" class="wp-90 ">
+                        Auriculares
+                    </a>
+                </article>
+
+
+
+                <article >
+                    <a class="categoria-main" href="/products?category=Memorias">
+                        <img src="img/productos/memoria-team.jpg" class="wp-90 ">
+                        Memorias
+                    </a>
+                </article>
+
+
+                
+                <article >
+                    <a class="categoria-main" href="/products?category=Motherboard">
+                        <img src="img/productos/motherasrock.jpg" class="wp-90 ">
+                        Motherboard
+                    </a>
+                </article>
+
+
+
+                <article >
+                   <a class="categoria-main"href="/products?category=Gabinetes">
+                        <img src="img/productos/gabinete.png" class="wp-90 ">
+                        Gabinetes
+                   </a>
+                </article>
+
+
+                <article >
+                    <a class="categoria-main" href="/products?category=Teclados">
+                        <img src="img/productos/teclado.png" class="wp-90 ">
+                        Teclados
+                    </a>
+                </article>
+                </form>
+            </section>
+
+            <section class="main-oferts">
+                <div class="main-title">
+                    <h2>Ofertas</h2>
+                </div>
+    
+                <div class="section-card p-1 mx-auto flex flex-wrap gap justify-center card-ofert-change">
+    
+                    <% productsOfert.forEach(product=> { %>
+                        <%- include("products/productCard",{product}) %>
+                    <% }) %>
+    
+                </div>
+            </section>
+
+            <section class="main-publicidad" style="margin: 4rem 0;">
+                <!-- <%- include("partials/carruselUno")%> -->
+                <img src="/img/anuncios/ryzen.jpg" alt="">
+            </section>   
+
+            <section class="main-oferts">
+                <div class="main-title">
+                    <h2>Nuevos Productos</h2>
+                </div>
+    
+                <div class="section-card p-1 mx-auto flex flex-wrap gap justify-center card-ofert-change">
+    
+                    <% products.forEach(product=> { %>
+                        <%- include("products/productCard",{product}) %>
+                    <% }) %>
+                </div>
+            </section>
+
+           
+        </main>
+
+
+        <!-- AXEL -->
+
+        <%- include("partials/footer") %>
+
+            
+</body>
+
+</html>

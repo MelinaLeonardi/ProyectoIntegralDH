@@ -1,0 +1,65 @@
+<header class="header-partial">
+
+   <nav class="nav-container" >
+
+        <a href="/" class="nav-img"><img class="nav-img" src="/img/logo.png"></img></a>
+
+        
+        <section class="search-bar-container">
+            <form action="/products" enctype="application/x-www-form-urlencoded" method="get" class="search-bar">
+                <input type="search" name="search" id="search" autocomplete="off" placeholder="Buscar producto...">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+       </section>
+       <div class="nav-buttons">
+            <div class="nav-buttons" id="nav-buttons-laptop">
+
+                <!-- si estoy logueado  -->
+                <% if (locals.isLogged) { %>
+
+                    <div class="user-dropdown">
+                        <ul class="user-dropdown-list">
+                            <li class="dropdown-item">
+                                <a href="/users/profile">Ver perfil</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="/carrito">Carrito</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="/favorites">Favoritos</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="/users/logout">Cerrar Sesión</a>
+                            </li>
+                            <% if (locals.isLogged && locals.userLogged.idRole == 1) { %>
+                            <li class="dropdown-item">
+                                <a href="http://localhost:3001" target="_blank">Panel de control</a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <div class="nav-img-login">
+                        <span><i class="fa-solid fa-user"></i> <%= locals.userLogged.userName %></span>
+                    </div>
+
+                <% } else { %>
+                    <!-- si no estoy logueado solo muestro boton de login -->
+                    <a class="btn-login"  href="/users/login">Iniciar Sesión <i class="fa-solid fa-power-off"></i></a>
+                <% } %>
+            </div>
+            <div class="phone-icon-menu"><i class="fa-solid fa-bars"></i></div>
+        </div>
+        
+   </nav>
+   
+   <section>
+        <ul class="nav-ul">
+            <li class="nav-li"><a href="/">Inicio</a></li>
+            <li class="nav-li"><a href="/products">Productos</a></li>
+            <li class="nav-li"><a href="/products?category=oferts">Ofertas</a></li>
+            <li class="nav-li"><a href="/ayuda">Ayuda</a></li>
+            <li class="nav-li"><a href="/contacto">Contacto</a></li>
+        </ul>
+   </section>
+   
+</header>

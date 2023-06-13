@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("partials/head") %>
+
+</head>
+
+<body>
+
+    <!-- LAUTARO Y PABLO -->
+    <%- include("partials/header")%>
+    <!--MAIN-->
+    <main class="main-listado">
+        <section class="container-categories">
+            <!-- ACA PONgo EL CONDICIONAL PARA QUE APAREZCA EL BOTON DE AGREGAR PRODUCTO SEGUN SE ESTE LOGUEADO O NO  Y SOLO SI EL USUARIO ES ADMINISTRADOR> USO MIDDLEWARE DE APLICACION (userLoggedMiddleware)-->
+
+          
+            <% if (locals.isLogged && locals.userLogged.idRole == 1) { %>
+              
+
+            <a href="/products/add" class="a-agregarProducto-listProduct">
+                <input type="submit" name="agregaProducto" value="Agregar producto" >
+            </a>
+
+        <% } %>
+
+
+            <div class="desplegable">
+                <h3 style="text-align: center;width: 100%;">Filtrar productos</h3>
+                <i class="fa-solid fa-sort-down"></i>
+            </div>
+            <form action="/products" id="categorias-form" enctype="application/x-www-form-urlencoded" method="post">
+                <div class="ofert-container">
+                    <p>Oferta<i class="fa-solid fa-tag"></i></p>
+                    <label class="switch">
+                        <input type="checkbox" name="off" 
+                        <% if (off) { %>
+                            checked
+                        <% } %>
+                        >
+                        <span class="slider round"></span>
+                    </label>
+                    
+                </div>
+                <div class="filters">
+                    <h3>Categorias</h3>
+                    <div class="filters-container">
+                        <% categorias.forEach(categoria => { %>
+                            <label><input type="checkbox" value="<%=categoria.id %>" name="<%= categoria.name %>"> <%= categoria.name %></label>
+                        <% }) %>
+                    </div>
+                    <h3>Marcas</h3>
+                    <div class="filters-container">
+                        <% brands.forEach(brand => { %>
+                            <label><input type="checkbox" value="<%=brand.id %>" name="<%= brand.name %>"> <%= brand.name %></label>
+                        <% }) %>
+                    </div>
+                    <input type="submit">
+                </div>
+            </form>
+               
+        
+
+        </section>
+        
+        <!-- cards de productos -->
+        <section class="container-products">
+            <% if (productos.length > 0) { %>
+                <% productos.forEach(product => { %>
+                    <%- include ("products/productCard.ejs",{product}) %> 
+                <% }) %>
+            <% } else {%>
+                <p style="
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                    margin-top: 2rem;
+                    "><%= msj %></p>
+            <% } %>
+        </section>
+
+       
+     
+    </main>
+
+    <!-- AXEL -->
+    <%- include("partials/footer")%>
+   
+</body>
+    
+</html>

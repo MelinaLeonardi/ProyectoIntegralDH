@@ -1,0 +1,41 @@
+<article class="item-producto-container" >
+    <a href="/products/detail/<%= product.id %> " class="item-producto" id="product-item">
+        <div class="div-imagen-producto">
+            <img src="img/productos/<%= product.image %> " class=" w100 border-radius-10 ">
+        </div>
+        
+        <div class="item-products-text ">
+
+            <h4><%= product.name %></h4>
+
+            <% if (product.discount > 0) {%>
+                <div class="price-discount-card" >
+                    <p style="text-decoration: line-through;color: grey;">
+                        $<%= product.price %> 
+                    </p>
+                    <p class="descuento_article" style="text-decoration:none;">
+                        <%= product.discount %>%OFF
+                    </p>
+                </div>
+                <p style="font-size: 20px; font-weight: bold;">
+                    $<%=product.price - ((product.discount / 100)* product.price) %>
+                </p>
+            <% } %>
+
+            <% if (product.discount==0) {%>
+                <p style="font-size: 20px; font-weight: bold;">
+                    $<%= product.price %>
+                </p>
+            <% } %>
+
+            <div class="card-button-view">
+                <p>Ver más</p>
+            </div>
+            
+            
+        </div>
+      
+    
+    </a>
+    
+</article>

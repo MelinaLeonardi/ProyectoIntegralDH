@@ -1,0 +1,163 @@
+@import url("variables.css");
+
+/* main h2{
+    background-color: var(--gris-claro);
+    font-size: 20px;
+    margin: 30px auto 0px 90px;
+    text-transform: uppercase;
+} */
+
+
+
+.main-ayuda h3,
+.main-ayuda h4{
+    color: var(--naranja);
+    font-size: 16px;
+}
+
+.section-card {
+    display: flex;
+    /*saco flex direction:flex-column xq tira los elementos al margen izaquierdo*/
+}
+
+.section-card a{
+    width: 90%;
+}
+/*.articulo{
+    height: 200px;
+    width: 200px;
+}*/
+.descuento_article{
+    color:var(--naranja);
+    text-decoration: none;
+}
+
+.border-radius-100:hover{
+    border-radius: 50%;
+    box-shadow: 0 0 7px rgba(122, 122, 122, 0.582);
+    cursor: grab;
+}
+
+.border-1:hover{
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgba(122, 122, 122, 0.582);
+    cursor: grab;
+    transform: scale(1.1);
+}
+
+.boton-enviar{
+    background-color: var(--naranja);
+    padding:5px;
+    font-size: 20px;
+    transition: all 250ms;
+}
+
+.boton-enviar:hover{
+    background-color: var(--naranja-oscuro) ;
+    border-radius: 10px;
+    font-weight:bold;
+    border: solid black
+
+}
+
+.main-categories{
+    margin: 3rem 0 4rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 1%;
+}
+
+.categoria-main{
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+.categoria-main img{
+    margin-bottom: 1rem;
+    object-fit: contain;
+}
+@media(min-width: 469px){
+    article h4{
+        display: block;
+    }
+    .section-card {
+        flex-direction: row;
+    }
+}
+.div-marquee{
+    width: 90%;
+    margin: auto auto;
+}
+.marquee{
+    color: var(--naranja);
+    animation: mar 10s ease-in-out 0s normal infinite none;
+    transition: 2.5s;
+    scroll-behavior: smooth;
+}
+@keyframes mar {
+    50%{
+        transform: translateX(100px);
+        color: var(--naranja-oscuro);
+    }
+    80%{
+        color: white;
+    }
+}
+
+.main-publicidad{
+    width: 100%;
+    height: 120px;
+}
+
+.main-publicidad img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: left;
+}
+
+@media (min-width: 1024px){
+    .main-publicidad{
+        width: 100%;
+        height: 200px;
+    }
+    .main-publicidad img {
+        object-position: center;
+    }
+}
+
+.main-oferts{
+    width: 95%;
+    box-shadow: 0 0 7px 1px rgba(32, 32, 32, 0.2);
+    margin: 0 auto;
+    background-color: white;
+    position: relative;
+    padding: 3rem 0 2rem 0;
+
+}
+
+.main-title{
+    position: absolute;
+    top: -1.3rem;
+    left: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    background-color: var(--naranja);
+    padding: .5rem 1rem;
+    border-radius:2rem 0 2rem 0;
+}
+
+.main-title h2{
+    font-size: 2rem;
+    color: white;
+}

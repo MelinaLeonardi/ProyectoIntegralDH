@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("partials/head") %>
+        <link rel="stylesheet" href="/digitalstore/public/css/index.css">
+</head>
+
+<body>
+
+
+    <%- include("partials/header") %>
+
+
+        <main class="main-profile">
+
+            <h2 class="main-profile-title">Mis datos</h2>
+
+            <section class="main-profile-dates">
+                <h3 class="profile-section-title">Datos de cuenta</h3>
+                <ul class="section-profile-dates">
+                    <li>
+                        <p class="profile-title">Usuario</p>
+                        <p class="profile-date"><%= user.userName %></p>
+                    </li>
+                    <li>
+                        <p class="profile-title">E-mail</p>
+                        <p class="profile-date"><%= user.email %></p>
+                    </li>
+                    <li>
+                        <p class="profile-title">Contraseña</p>
+                        <a class="profile-link" href="/users/changepassword/<%= user.id %>">Cambiar contraseña</a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="main-profile-dates">
+                <h3 class="profile-section-title">Datos Personales</h3>
+                <ul class="section-profile-dates">
+                    <li>
+                        <p class="profile-title">Nombre</p>
+                        <p class="profile-date"><%= user.firstName %></p>
+                    </li>
+                    <li>
+                        <p class="profile-title">Apellido</p>
+                        <p class="profile-date"><%= user.lastName %></p>
+                    </li>
+                </ul>
+            </section>
+
+
+        </main>
+        <%- include("partials/footer") %>
+</body>
+
+</html>

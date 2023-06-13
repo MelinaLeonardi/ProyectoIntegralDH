@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <script src="/script/agregarProducto.js"></script>
+    <head>
+        <%- include("partials/head") %>
+
+    </head>
+<body>
+  <!-- LAUTARO Y PABLO -->
+  <%- include("partials/header")%>
+  <main class="main-form">
+
+    <form action="/products/add" method="post" class="form-add" enctype="multipart/form-data"">
+
+        <h2 class="form-title">Nuevo producto </h2>
+
+        <div class="item-content-form name-form">
+            <label for="nombre" class="label-form">Nombre del producto</label>
+            <input type="text" class="input-nombre" placeholder="Ingrese nombre del producto" name="name" id="nombre" value="<%= locals.old && old.name ? old.name : '' %>">
+            <p class="errorH2"></p>
+                <% if (locals.errores && errores.name ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.name.msg %>
+                    </div>
+                    <% } %>
+
+
+        </div>
+
+        <div class="item-content-form price-form">
+            <label for="precio" class="label-form">Precio</label>
+            <input type="number" class="input-number" placeholder="Ingrese precio" name="price" id="precio" value="<%= locals.old && old.price ? old.price : '' %>">
+            <p class="errorPrecio"></p>
+            <% if (locals.errores && errores.price ) { %>
+                <div class='feedback is-danger'>
+                    <%= errores.price.msg %>
+                </div>
+                <% } %>
+
+        </div>
+
+        <div class="item-content-form price-form">
+            <label for="descuento" class="label-form">Descuento</label>
+            <input type="number" name="discount" id="descuento" class="input-label" placeholder="Ej: 0%" value="<%= locals.old && old.discount ? old.discount : '' %>">
+
+
+            <% if (locals.errores && errores.discount ) { %>
+                <div class='feedback is-danger'>
+                    <%= errores.discount.msg %>
+                </div>
+                <% } %>
+
+        </div>
+
+        <div class="item-content-form category-form">
+            <label for="categoria" class="label-form">Categoria</label>
+            <select name="idCategory" id="" required>
+                
+                <option value="" >- Seleccione categoria - </option> <!-- disabled selected eliminado despues del value-->
+                <% categories.forEach(category=> { %>
+                    <option value="<%= category.id %>">
+                        <%= category.name %>
+                    </option>
+                    <% }); %>
+            </select>
+        </div>
+
+
+        <div class="item-content-form category-form">
+            <label for="idBrand" class="label-form">Marca</label>
+            <select name="idBrand" id="" required>
+                <option value="">- Seleccione marca - </option><!-- disabled selected eliminado despues del value-->
+                <% brands.forEach(brand=> { %>
+                    <option value="<%= brand.id %>">
+                        <%= brand.name %>
+                    </option>
+                    <% }); %>
+            </select>
+        </div>
+
+
+        <div class="item-content-form file-form">
+            <label for="image" class="label-form" >Imagen del producto</label>
+            <input type="file" class="input-file" name="image" id="image" accept="image/png, image/jpeg, image/jpg">
+            
+            <% if (locals.errores && errores.image) { %>
+                <div class='feedback is-danger'>
+                    <%= errores.image.msg %>
+                </div>
+                <% } %>
+
+        </div>
+
+
+        <div class="item-content-form area-form">
+            <label for="descripcion" class="label-form" >Descripcion</label>
+            <textarea type="text" class="input-textarea" placeholder="Ingrese descripcion" name="description" id="descripcion" value="<%= locals.old && old.description ? old.description : '' %>"></textarea>
+
+            <% if (locals.errores && errores.description) { %>
+                <div class='feedback is-danger'>
+                    <%= errores.description.msg %>
+                </div>
+                <% } %>
+
+        </div>
+
+
+        <div class="item-content-form button-form-content">
+            <input type="submit" class="button-form">
+            <input type="reset" value="Limpiar datos" class="button-form">
+        </div>
+
+    </form>
+
+</main>
+
+  <!-- AXEL -->
+  <%- include("partials/footer")%>
+ 
+</body>
+</html>

@@ -1,0 +1,66 @@
+.main-ayuda{
+   padding-top: .1rem;
+   background-color: rgb(224, 224, 224);
+}
+
+html{
+   scroll-behavior: smooth;
+}
+
+.h1-ayuda{
+   text-align: center;
+   margin-top: 2%;
+}
+
+.section-ayuda {
+   text-align: center;
+   margin-top: 5%;
+  
+}
+.section-ayuda h3 {
+   font-size: 40px;
+   margin-bottom: 3%;
+}
+.article-ayuda{
+   border: 2px solid gainsboro;
+   margin: 5% auto;
+   padding: 2%;
+   border-radius: 20px;
+   background-color: white;
+   width: 70%;
+   box-shadow: 0px 0px 10px var(--negro);
+}
+.navBar-ayuda{
+   display: block;
+   background-color: white;
+   width: 100%;
+}
+
+.ul-ayuda{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+}
+.ul-ayuda a {
+   display: flex;
+   place-items: center;
+   border-bottom: 2px solid var(--naranja);
+   padding: .8rem;
+   cursor: pointer;
+   color: black;
+   transition: 0.3s;
+
+}
+
+.ul-ayuda a:hover {
+   background-color: var(--naranja);
+   color: white;
+   transition: 0.3s;
+}
+
+@media (max-width: 768px){
+   .ul-ayuda{
+      flex-wrap: wrap;
+      padding: 0 2rem;
+   }
+}

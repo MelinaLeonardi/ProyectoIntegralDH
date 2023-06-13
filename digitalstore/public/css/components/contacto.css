@@ -1,0 +1,64 @@
+.main-contacto{
+    background-image: url('/img/logoo.gif');
+    margin-top: 0;
+}
+
+.label-contacto{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    
+}
+
+.contenedor-contacto{
+    width: 90%;
+    margin: 10px auto;
+    
+    ;
+}
+
+.form-login-contacto{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--naranja);
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: black 0 0 10px;
+
+
+}
+.input-contacto{
+    font-size: 25px;
+    width: 80%;
+    text-align: center;
+    margin: 10px auto;
+    border-radius: 10px;
+
+
+}
+.comentario-contacto{
+
+    width: 80%;
+    height: 100px;
+    margin: auto;
+}
+.submit-contacto{
+    background-color: black;
+    color: white;
+    width: 30%;
+    margin: 10px auto;
+    font-size: 20px;
+    border-radius: 15px;
+}
+
+
+
+@media (min-width: 768px){
+    .contenedor-contacto{
+        width: 50%;
+        margin: 10px auto;
+
+    }
+}

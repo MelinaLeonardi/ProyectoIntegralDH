@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("partials/head") %>
+
+</head>
+
+
+<body class="body-login">
+    <%- include("partials/header") %>
+    <!-- LAUTARO Y PABLO -->
+    <main class="main-login">
+        <div class="contenedor">
+      
+            <form action = "/users/login" class="form-login" method="post">
+
+                <label for="" class="label-login">Email</label>
+                <input type="text" name = "email" class="input-login" placeholder="Ingrese e-mail para loguearse"  value="<%= locals.old && old.emailLogin ? old.emailLogin : '' %>">
+
+                <% if (locals.errores && errores.email ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.email.msg %>
+                    </div>
+                    <% } %>
+
+                <label for="" class="label-login" style="margin-top: 1rem;">Contraseña</label>
+                <input type="password" name = "password"class="input-login" placeholder="Ingrese su contraseña">
+
+                <% if (locals.errores && errores.password ) { %>
+                    <div class='feedback is-danger'>
+                        <%= errores.password.msg %>
+                    </div>
+                <% } %>
+
+                <br>    
+                <div class="input-send">
+                    <label> Recordar usuario </label>
+                    <input type="checkbox" id="remember" name="remember">
+                </div>
+                
+                <a href="" class="w-100  "><input type="submit" class="boton-enviar-login"></a>
+                <br>
+               
+                <br>
+                <p>Todavia no sos usuario? </p>
+                <a href="/register" class="registrate-login"> Registrate aca!</a>
+
+            </form>
+    </main>
+
+    <!-- AXEL -->
+   <%- include("partials/footer")%>
+
+   
+</body>
+
+</html>

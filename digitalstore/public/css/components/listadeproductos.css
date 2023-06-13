@@ -1,0 +1,332 @@
+@import url("./variables.css");
+
+.main-listado{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.container-categories{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-categories{
+    width: 100%;
+}
+
+.desplegable{
+    padding: 10px 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--naranja);
+    color: var(--negro);
+    cursor: pointer;
+}
+
+.desplegable h3{
+    color: var(--negro);
+}
+
+.container-categories form{
+    display: none;
+    flex-direction: column;
+    padding: 10px 15px;
+    background-color: var(--gris-claro);
+    border-bottom: 2px solid rgb(204, 204, 204);
+}
+
+.show-cat{
+    display: flex !important;
+   
+}
+
+.container-categories form input[type="submit"]{
+    padding: 10px 15px;
+    background-color: var(--naranja);
+    border: none;
+    border-radius: 10px;
+    color: var(--blanco);
+    font-weight: bold;
+}
+
+.container-products{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding:  15px ;
+    gap: 2%;
+    background-color: var(--gris-claro);
+    margin: 0 auto;
+}
+
+.item-producto-container{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+}
+
+.item-producto{
+    width: 100%;
+    max-width: 270px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: var(--blanco);
+    height: 400px;
+    transition: all .6s;
+    color: var(--negro);
+}
+
+.item-producto h4{
+    margin: 10px 0;
+    font-weight: 400;
+    padding: 0 14px;
+}
+
+.item-producto img{
+    margin: 1rem auto 0 auto;
+    object-fit: contain;
+    padding: 0 10px;
+
+}
+
+.item-producto:hover{
+    box-shadow: 0 0 7px 1px rgba(32, 32, 32, 0.2);
+}
+
+.card-ofert-change .item-producto-container .item-producto{
+    box-shadow: 0 0 7px 1px rgba(32, 32, 32, 0.2);
+}
+
+.item-products-text{
+    padding-top: 15px;
+}
+
+.card-button-view{
+    margin-top: .7rem;
+    height:35px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    color: grey;
+    border-radius: 0 0 5px 5px;
+
+}
+
+.card-button-view{
+    background-color: var(--naranja);
+    font-weight: bold;
+    color: white;
+}
+
+@media (max-width:769px) {
+    .card-button-view{
+        background-color: var(--naranja);
+        font-weight: bold;
+        color: white;
+    }
+    .item-producto{
+        box-shadow: 0 0 7px 1px rgba(32, 32, 32, 0.2);
+    }
+}
+
+.price-discount-card{
+
+    justify-content: center;
+    display: flex;
+    gap: .6rem;
+    margin-top: 1rem;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 24px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.filters,
+.ofert-container{
+    display: flex;
+    gap: 10px;
+    background-color: var(--blanco);
+    padding: 20px 10px;
+    border-radius: 15px;
+    justify-content: center;
+}
+.ofert-container p{
+    font-weight: bold;
+    color: var(--naranja);
+}
+.ofert-container p i{
+    margin-left: 5px;
+}
+
+.filters{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+}
+
+.filters-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+.a-agregarProducto-listProduct{
+    display: none;
+}
+
+.icons-card{
+    display: flex;
+}
+@media (min-width:551px) {
+    .container-products{
+        gap:2%;
+        
+    }
+    .item-producto-container{
+        width: 48%;
+    }
+}
+@media (min-width:768px) {
+    .container-products{
+        justify-content: flex-start;
+        cursor: pointer;
+    }
+    .item-producto-container{
+        width: 32%;
+    }
+}
+@media (min-width:1080px) {
+    .filters-container{
+        margin: 10px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        flex-wrap: nowrap;
+    }
+    .container-categories form{
+        display: flex;
+        gap: 20px;
+        border: none;
+    }
+
+    .container-products{
+        gap: 0%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .item-producto-container{
+        width: 23%;
+        margin-bottom: 1.6rem;
+    }
+
+    .main-listado{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .container-categories{
+        background-color: var(--gris-claro);
+        width: 20%;
+    }
+
+    .h50img{
+        text-align: center;
+    }
+    .h50img img{
+        margin: auto;
+    }
+
+    .desplegable{
+        background:none;
+        cursor:auto;
+    }
+    .desplegable i{
+        display: none;
+    }
+    .a-agregarProducto-listProduct{
+        display: block;
+        text-align: center;
+        margin: 10px auto;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        padding: 20px 5px;
+        width: 90%;
+        border: 2px solid var(--naranja);
+    }
+    .a-agregarProducto-listProduct input{
+        background-color: white;
+        color: var(--naranja);
+        font-weight: bold;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        width: 100%;
+    }
+}
+

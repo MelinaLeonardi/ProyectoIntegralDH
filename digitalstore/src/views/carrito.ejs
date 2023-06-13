@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <%- include("partials/head") %>
+
+</head>
+
+<body>
+
+    <!-- LAUTARO Y PABLO -->
+    <%- include("partials/header")%>
+
+        <main class="main-carrito">
+
+
+            <section class="section-carrito">
+
+                <% // carrito.forEach(product=> { %>
+                    <%- // include('./products/productCarrito.ejs',{product}) %>
+                        <% //}) %>
+                            <div class="contenedor1-carrito">
+                                 <h1
+                                 style="text-transform: uppercase;
+                                 font-weight: bold;
+                                 text-align: center;
+                                 margin: 0 auto;
+                                 margin-top: 2rem;
+                                 font-size: 1.4rem;
+                                 background-color: var(--naranja);
+                                 color: white;
+                                 padding: .6rem 1rem;
+                                 border-radius: 1rem;
+                                 width: 10rem;"
+                                 ><i class="fa-solid fa-cart-shopping" style="font-size: 1.4rem;"></i> Carrito</h1>
+
+                                <% if (cart.length==0) { %>
+                                    <div class="text-center p-5 sin-producto">
+                                        <h4>No hay productos en su carrito</h4>
+                                    </div>
+                                    <% } %>
+                                        <div class="contenedor-producto-carrito">
+                                            <% cart.forEach(item=>{%>
+                                                <div class="contenedor-producto">
+                                                    <div class="div-img-carrito">
+                                                        <img class="img-carrito"
+                                                            src="img/productos/<%= item.product.image %> " alt="" />
+                                                    </div>
+                                                    <div class="block">
+                                                        <div class="">
+                                                            <h2 class="nombre-producto"><a
+                                                                    href="/products/detail/<%= item.product.id %>">
+                                                                    <%= item.product.name %>
+                                                                </a></h2>
+                                                            <p class="precio-producto">
+                                                                $<%= item.product.price %>
+                                                            </p>
+
+                                                        </div>
+
+                                                        <div class="contenedor-masmenos-carrito">
+                                                            <div class="contadores-carrito">
+
+                                                                <form action="/carrito/remove/<%= item.product.id  %>"
+                                                                    method="post">
+                                                                    <button class="btn menos-carrito">
+                                                                        <i class="fa-solid fa-minus"></i>
+                                                                    </button>
+                                                                </form>
+                                                                <p class="numeroContador-carrito">
+                                                                    <%= item.count %>
+                                                                </p>
+                                                                <form action="/carrito/add/<%= item.product.id  %>"
+                                                                    method="post">
+                                                                    <button class="btn mas-carrito">
+                                                                        <i class="fa-solid fa-plus"></i>
+                                                                    </button>
+                                                                </form>
+
+
+
+
+                                                            </div>
+                                                            <form class="form-tachito-carrito"
+                                                                action="/carrito/carrito/delete/<%= item.product.id %>"
+                                                                method="post">
+                                                                <button class="btn color-primary btn-eliminar"><i
+                                                                        class="fa-solid fa-trash"></i></button>
+                                                            </form>
+                                                        </div>
+
+
+                                                    </div>
+
+                                                </div>
+                                                <% }) %>
+                                        </div>
+                                        <% if (cart.length> 0) { %>
+                                            <div class="total">
+                                                <div class="d-flex w-100 justify-content-end totalyprecio">
+                                                    <div class="fs-3 m-0 pe-5">Total:</div>
+                                                    <div class="fs-3 m-0 text-end naranja">$<%= totalPrice %>
+                                                    </div>
+
+                                                </div>
+                                                <article class=" p-1 contenedor-carrito">
+                                                    <h3>Forma de pago</h3>
+
+                                                    <div class="radio-carrito">
+                                                        <input type="radio" name="forma-Pago" class="deposito-carrito">
+                                                        <label for="" class="label-deposito-carrito">Deposito o
+                                                            transferencia bancaria</label>
+                                                    </div>
+
+                                                    <div class="radio-carrito">
+                                                        <input type="radio" name="forma-Pago" id="mercadopago-carrito">
+                                                        <label for="" class="labe-mercado">Mercado pago - Tarjetas online, PagoFacil,
+                                                            RapiPago</label>
+                                                    </div>
+
+                                                </article>
+
+                                                <div class="comprar-limpiar-carrito">
+                                                    <form class=""
+                                                        action="/me/cart/buy" method="POST">
+                                                        <button class="btn btn-primary comprar">Comprar</button>
+                                                    </form>
+                                                    <form action="/carrito/carrito/clear/" method="post">
+                                                        <button class="btn limpiar-carrito">
+                                                           <p class="limpiar-carrito-p">Limpiar Carrito</p> 
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+
+
+                                            </div>
+                                            <% } %>
+                            </div>
+
+            </section>
+        </main>
+
+
+        <!-- AXEL -->
+        <%- include("partials/footer")%>
+
+
+</body>
+
+</html>
